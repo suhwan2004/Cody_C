@@ -7,4 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+
+    <color name ="Blue_Crayola">#3171F0</color>
+    <color name = "Dodger_Blue">#2699FB</color>
+    <color name = "Denim_Blue">#1745C6</color>
+    <color name = "Blue_Crayola_1">#3B78F0</color>
+    <color name = "Maya_Blue">#E3F2FF</color>
 </resources>
