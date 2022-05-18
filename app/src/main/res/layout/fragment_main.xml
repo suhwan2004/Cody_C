@@ -106,45 +106,14 @@
                     android:contentDescription="@string/app_name"
                     android:scaleType="centerCrop"
                     android:weightSum="1">
-                    <ImageView
-                        android:layout_width="0dp"
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_weight="0.8"
-                        android:src = "@drawable/codytest">
-                    </ImageView>
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.2"
-                        android:orientation="vertical">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent">
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/bookmark"
-                                android:layout_gravity="top|left">
-                            </ImageView>
-                        </LinearLayout>
-                    </LinearLayout>
+                        android:id="@+id/viewpager"
+                        android:clipToPadding="false"
+                        android:clipChildren="false"/>
                 </LinearLayout>
                 <!--
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.8"
-                    android:weightSum = "1"
-                    android:id="@+id/outerViewPager">
-                    <androidx.viewpager2.widget.ViewPager2
-                        android:id="@+id/viewpager"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:clipChildren="false"
-                        android:clipToPadding="false"
-                        android:scaleType="fitXY" />
-                </FrameLayout>
                    -->
 
                 <LinearLayout

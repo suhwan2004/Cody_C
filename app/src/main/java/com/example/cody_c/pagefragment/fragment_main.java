@@ -2,10 +2,12 @@ package com.example.cody_c.pagefragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,11 +20,8 @@ import com.example.cody_c.R;
  * create an instance of this fragment.
  */
 public class fragment_main extends Fragment {
-
-    private ViewPager2 mPager;
-    private FragmentStateAdapter pagerAdapter;
-    private int num_page = 2;
-
+    private Fragment mainCodyImg, mainCodySet;
+    final int NUM_PAGES = 2;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -58,16 +57,38 @@ public class fragment_main extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false);
+        View view =  inflater.inflate(R.layout.fragment_main, container, false);
+        mainCodyImg = new fragment_main_codyimg();
+        mainCodySet = new fragment_main_codyset();
+
+        ViewPager2 viewPager2 = view.findViewById(R.id.viewpager);
+        viewPager2.setAdapter(new viewPagerAdapter(this)); // 여기서 this로 뷰페이저가 포함되어 있는 현재 프래그먼트(HomeFragment)를 인수로 넣어준다.
+        viewPager2.setCurrentItem(0);
+        return view;
+    }
+
+    private class viewPagerAdapter extends FragmentStateAdapter {
+        public viewPagerAdapter(Fragment fragment) {
+            super(fragment);
+        }
+
+        @NonNull
+        @Override
+        public Fragment createFragment(int position) {
+            if(position == 0) return mainCodyImg;
+            else if(position == 1) return mainCodySet;
+            else return mainCodyImg;
+        }
+
+        @Override
+        public int getItemCount() {
+            return NUM_PAGES;
+        }
     }
 }
