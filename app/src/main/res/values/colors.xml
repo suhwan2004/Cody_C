@@ -5,14 +5,33 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+    <color name="colorBlack">#FF000000</color>
+    <color name="colorWhite">#FFFFFFFF</color>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name ="white">#FFFFFFFF</color>
+    <color name="colorRed">#FF0000</color>
+    <color name="colorDarkGray">#333</color>
+    <color name="colorLightGray">#aaa</color>
+    <color name="colorLightBlue">#D9E8FF</color>
 
-    <!-- 프로젝트에 필요한 색 모음. -->
+    <!-- 프로젝트 테마에 필요한 색 모음. -->
 
     <color name ="Blue_Crayola">#3171F0</color>
     <color name = "Dodger_Blue">#2699FB</color>
     <color name = "Denim_Blue">#1745C6</color>
     <color name = "Blue_Crayola_1">#3B78F0</color>
     <color name = "Maya_Blue">#E3F2FF</color>
+
+    <!-- 색 추천 조합에 필요한 색 모음. -->
+    <color name = "colorSky">#88C6FC</color>
+    <color name = "colorRealBlue">#031252</color>
+    <color name = "colorBeige">#F5F5DC</color>
+    <color name = "colorCream">#E8D581</color>
+    <color name = "colorPink">#FFC4E0</color>
+    <color name = "colorNavy">#374D9A</color>
+    <color name = "colorKhaki">#6D6A0A</color>
+    <color name = "colorGray">#808080</color>
+    <color name = "colorBlue">#0C70F2</color>
+    <color name = "colorGreen">#008000</color>
+    <color name = "colorYellow">#FFFF00</color>
 </resources>

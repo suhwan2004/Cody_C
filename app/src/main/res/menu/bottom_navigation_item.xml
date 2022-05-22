@@ -4,9 +4,15 @@
     <item android:id="@+id/item_home"
         android:title="Home"
         android:icon="@mipmap/ic_launcher_round"/>
+
+    <item android:id="@+id/item_DetailWeather"
+        android:title="DetailWeather"
+        android:icon="@mipmap/ic_launcher_round"/>
+
     <item android:id="@+id/item_clothstyle"
         android:title="ClothStyle"
         android:icon="@mipmap/ic_launcher_round"/>
+
     <item android:id="@+id/item_citysearch"
         android:title="CitySearch"
         android:icon="@mipmap/ic_launcher_round"/>

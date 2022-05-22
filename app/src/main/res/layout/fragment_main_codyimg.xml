@@ -31,6 +31,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/bookmark"
+                    android:id="@+id/main_cody_bookmark"
                     android:layout_gravity="top|left">
                 </ImageView>
             </LinearLayout>

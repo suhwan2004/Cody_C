@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".pagefragment.fragment_main">
 
     <!-- TODO: Update blank fragment layout -->
@@ -10,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:weightSum="1"
-        android:background="@color/white"
+        android:background="@color/colorWhite"
         android:orientation="vertical"
         >
         <LinearLayout
@@ -47,6 +48,7 @@
                     android:gravity="left"
                     android:layout_gravity="center"
                     android:textColor="@color/Dodger_Blue"
+                    android:id="@+id/main_region_text"
                     >
                 </TextView>
                 <TextView
@@ -57,7 +59,8 @@
                     android:gravity="left"
                     android:textSize="100dp"
                     android:layout_gravity="center"
-                    android:textColor="@color/Dodger_Blue">
+                    android:textColor="@color/Dodger_Blue"
+                    android:id="@+id/main_temp_now">
                 </TextView>
                 <TextView
                     android:layout_width="match_parent"
@@ -75,7 +78,8 @@
                     android:textSize="40dp"
                     android:gravity="left"
                     android:layout_gravity="center"
-                    android:textColor="@color/Dodger_Blue">
+                    android:textColor="@color/Dodger_Blue"
+                    android:id="@+id/main_bodily_temp">
                 </TextView>
                 <TextView
                     android:layout_width="match_parent"
@@ -84,7 +88,8 @@
                     android:textSize="20dp"
                     android:gravity="left"
                     android:layout_gravity="center"
-                    android:textColor="@color/Dodger_Blue">
+                    android:textColor="@color/Dodger_Blue"
+                    android:id="@+id/main_temp_diff">
                 </TextView>
             </LinearLayout>
             <LinearLayout
@@ -153,6 +158,7 @@
                         android:textColor="@color/Dodger_Blue"
                         android:text = "오늘 날씨에는 자켓, 셔츠, 가디건,\n 야상, 청바지, 면바지 코디가 좋아요!"
                         android:layout_marginRight="30dp"
+                        android:id="@+id/main_weather_ment"
                         ></TextView>
                 </LinearLayout>
                 <LinearLayout
@@ -166,7 +172,8 @@
                         android:textColor="@color/Dodger_Blue"
                         android:textSize="13dp"
                         android:text = "어제에 비해 쌀쌀한 편이니 \n 어제보다는 따뜻하게 입는게 좋습니다."
-                        android:layout_marginLeft="30dp">
+                        android:layout_marginLeft="30dp"
+                        android:id="@+id/main_temp_ment">
                     </TextView>
                 </LinearLayout>
                 <LinearLayout
@@ -181,19 +188,147 @@
                         android:textSize="13dp"
                         android:textColor="@color/Dodger_Blue"
                         android:text = "일교차가 큰 편이니 얇은 겉옷을 챙기는 게 좋겠네요."
-                        android:layout_marginRight="30dp"></TextView>
+                        android:layout_marginRight="30dp"
+                        android:id="@+id/main_temp_diff_ment"
+                        ></TextView>
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="0.4">
-                <LinearLayout
-                    android:layout_margin="20dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/layout_background">
-                </LinearLayout>
+                    <LinearLayout
+                        android:layout_margin="20dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:background="@drawable/layout_background"
+                        android:weightSum="1">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.3">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="매치 컬러"
+                                android:layout_marginLeft="10dp"
+                                android:layout_gravity="bottom"
+                                android:textColor="@color/colorWhite">
+                            </TextView>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="0.7">
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@id/color1"
+                                    app:layout_constraintHorizontal_chainStyle="spread"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintEnd_toStartOf="@id/color2"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    android:orientation="vertical">
+                                    <ImageView
+                                        android:layout_width="50dp"
+                                        android:layout_height="24dp"
+                                        android:id="@+id/color1_up">
+                                    </ImageView>
+                                    <ImageView
+                                        android:layout_width="50dp"
+                                        android:layout_height="24dp"
+                                        android:id="@+id/color1_down">
+                                    </ImageView>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/color2"
+                                    app:layout_constraintEnd_toStartOf="@id/color3"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintStart_toEndOf="@+id/color1"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    android:orientation="vertical">
+                                    <ImageView
+                                        android:layout_width="50dp"
+                                        android:layout_height="24dp"
+                                        android:id="@+id/color2_up">
+                                    </ImageView>
+                                    <ImageView
+                                        android:layout_width="50dp"
+                                        android:layout_height="24dp"
+                                        android:id="@+id/color2_down">
+                                    </ImageView>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/color3"
+                                    app:layout_constraintEnd_toStartOf="@id/color4"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintStart_toEndOf="@+id/color2"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    android:orientation="vertical">
+                                    <ImageView
+                                        android:layout_width="50dp"
+                                        android:layout_height="24dp"
+                                        android:id="@+id/color3_up">
+                                    </ImageView>
+                                    <ImageView
+                                        android:layout_width="50dp"
+                                        android:layout_height="24dp"
+                                        android:id="@+id/color3_down">
+                                    </ImageView>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/color4"
+                                    app:layout_constraintEnd_toStartOf="@id/color5"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintStart_toEndOf="@+id/color3"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    android:orientation="vertical"
+                                    >
+                                    <ImageView
+                                        android:layout_width="50dp"
+                                        android:layout_height="24dp"
+                                        android:id="@+id/color4_up">
+                                    </ImageView>
+                                    <ImageView
+                                        android:layout_width="50dp"
+                                        android:layout_height="24dp"
+                                        android:id="@+id/color4_down">
+                                    </ImageView>
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:id="@+id/color5"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintStart_toEndOf="@+id/color4"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    android:orientation="vertical">
+                                    <ImageView
+                                        android:layout_width="50dp"
+                                        android:layout_height="24dp"
+                                        android:id="@+id/color5_up">
+                                    </ImageView>
+                                    <ImageView
+                                        android:layout_width="50dp"
+                                        android:layout_height="24dp"
+                                        android:id="@+id/color5_down">
+                                    </ImageView>
+                                </LinearLayout>
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+                        </LinearLayout>
+                    </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
