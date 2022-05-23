@@ -3,61 +3,32 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import androidx.viewpager.widget.ViewPager;
 
 import android.Manifest;
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.location.Address;
-import android.location.Geocoder;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-import com.example.cody_c.adapter.DailyItemAdapter;
-import com.example.cody_c.adapter.HourlyItemAdapter;
-import com.example.cody_c.data.DailyItem;
-import com.example.cody_c.data.HourlyItem;
+import com.example.cody_c.pagefragment.fragment_cody_lib;
 import com.example.cody_c.pagefragment.fragment_citysearch;
 import com.example.cody_c.pagefragment.fragment_clothstyle;
 import com.example.cody_c.pagefragment.fragment_main;
+import com.example.cody_c.pagefragment.fragment_main_codyimg;
 import com.example.cody_c.pagefragment.fragment_main_weather;
 import com.example.cody_c.util.GpsTracker;
 import com.example.cody_c.util.PreferenceManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
-import com.google.android.material.tabs.TabLayout;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.io.IOException;
-import java.lang.reflect.Field;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
-    private Fragment mainFragment, detailWeatherFragment, clothStyleFragment, citySearchFragment;
+
+    private Fragment mainFragment, clothStyleFragment, citySearchFragment;
     private GpsTracker gpsTracker;
 
     private static final int GPS_ENABLE_REQUEST_CODE = 2001;
@@ -73,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.e("MainActivity latitude", String.valueOf(PreferenceManager.getFloat(this, "LATITUDE")));
         createFragment();
-
         //첫 화면은 메인화면으로 전시
         FragmentTransaction fT = getSupportFragmentManager().beginTransaction();
         fT.replace(R.id.frameLayout, mainFragment);
@@ -94,19 +64,18 @@ public class MainActivity extends AppCompatActivity {
                         fT1.addToBackStack(null);
                         fT1.commit();
                         return true;
-                    case R.id.item_DetailWeather:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, detailWeatherFragment).commit();
-                        return true;
                     case R.id.item_clothstyle:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, clothStyleFragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, clothStyleFragment).addToBackStack(null).commit();
                         return true;
                     case R.id.item_citysearch:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, citySearchFragment).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, citySearchFragment).addToBackStack(null).commit();
                         return true;
                 }
                 return false;
             }
         });
+
+
 
 
         if(PreferenceManager.getBoolean(this, "MAIN_NOTICE_DIALOG")!=true){
@@ -117,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void createFragment() {
         mainFragment = new fragment_main(); //메인 페이지
-        detailWeatherFragment = new fragment_main_weather(); //날씨 상세 페이지
         clothStyleFragment = new fragment_clothstyle(); // 옷 스타일 페이지
         citySearchFragment = new fragment_citysearch(); // 도시 추천 페이지
     }
@@ -165,5 +133,6 @@ public class MainActivity extends AppCompatActivity {
 
         PreferenceManager.setInt(this, "REGION_NUMBER",1);
     }
+
 
 }

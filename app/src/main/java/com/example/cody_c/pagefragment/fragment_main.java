@@ -10,6 +10,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -98,6 +99,7 @@ public class fragment_main extends Fragment {
     private ProgressDialog progressDialog;
     private String weather_Id;
 
+    private Fragment detailWeatherFragment;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -147,10 +149,18 @@ public class fragment_main extends Fragment {
 
         mainCodyImg = new fragment_main_codyimg();
         mainCodySet = new fragment_main_codyset();
+        detailWeatherFragment = new fragment_main_weather();
 
         ViewPager2 viewPager2 = rootView.findViewById(R.id.viewpager);
         viewPager2.setAdapter(new viewPagerAdapter(this)); // 여기서 this로 뷰페이저가 포함되어 있는 현재 프래그먼트(HomeFragment)를 인수로 넣어준다.
         viewPager2.setCurrentItem(0);
+
+        current_temp.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                getParentFragmentManager().beginTransaction().replace(R.id.frameLayout,detailWeatherFragment).addToBackStack(null).commit();
+            }
+        });
 
         return rootView;
     }
