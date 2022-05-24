@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer-array name="resId">
+        <item>@drawable/cody1</item>
+        <item>@drawable/cody2</item>
+        <item>@drawable/cody3</item>
+        <item>@drawable/cody4</item>
+        <item>@drawable/cody5</item>
+        <item>@drawable/cody6</item>
+        <item>@drawable/cody7</item>
+        <item>@drawable/cody8</item>
+    </integer-array>
+
+    <string-array name="content">
+        <item>~5ºC</item>
+        <item>6~9ºC</item>
+        <item>10~11ºC</item>
+        <item>12~16ºC</item>
+        <item>17~19ºC</item>
+        <item>20~23ºC</item>
+        <item>24~26ºC</item>
+        <item>27~30ºC</item>
+    </string-array>
+
+
+</resources>
