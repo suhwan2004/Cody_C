@@ -6,17 +6,50 @@
     tools:context=".pagefragment.fragment_clothstyle">
 
     <!-- TODO: Update blank fragment layout -->
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/fragment_clothstyle"
-        android:background="@color/colorWhite">
-
-        <ListView
-            android:id="@+id/clothstyle_listView"
+        android:orientation="vertical"
+        android:weightSum="1">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </ListView>
-    </RelativeLayout>
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:weightSum="1"
+            android:background="@color/colorWhite">
+            <TextView
+                android:id="@+id/clothstyle_text"
+                android:layout_width="660dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.9"
+                android:paddingLeft="160dp"
+                android:paddingTop="25dp"
+                android:text="옷 스타일"
+                android:textColor="#2699FB"
+                android:textSize="50px"
+                android:textStyle="bold" />
 
+            <ImageView
+                android:id="@+id/icon1"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:background="#ffffff"
+                android:src="@drawable/search_icon" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.9">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/fragment_clothstyle">
+                <ListView
+                    android:id="@+id/clothstyle_listView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"></ListView>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
 </FrameLayout>
