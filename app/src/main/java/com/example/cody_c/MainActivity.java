@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -25,6 +26,9 @@ import com.example.cody_c.util.PreferenceManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Set;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -135,5 +139,10 @@ public class MainActivity extends AppCompatActivity {
         PreferenceManager.setInt(this, "REGION_NUMBER",1);
     }
 
+    @Override
+    protected void onPause(){
+        PreferenceManager.setString(this, "flugin", "1");
+        super.onPause();
+    }
 
 }

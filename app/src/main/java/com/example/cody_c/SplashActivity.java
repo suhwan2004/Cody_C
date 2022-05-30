@@ -106,7 +106,6 @@ public class SplashActivity extends AppCompatActivity {
         PreferenceManager.setString(getApplicationContext(),"CITY",address);
         PreferenceManager.setInt(this, "REGION_NUMBER",1);
 
-
         if(PreferenceManager.getStringSet(this,"bookMark").size() == 0){
             //만약, 북마크가 없거나 북마크 내 저장된 코디가 없으면 새로 생성.
             PreferenceManager.setStringSet(this, "bookMark", bookMark);
