@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".pagefragment.fragment_cody_mylib">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width = "match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/colorWhite"
+            android:id="@+id/codyLibrary">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.1"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/book_lib_text"
+                    android:layout_width="660dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.9"
+                    android:paddingLeft="140dp"
+                    android:paddingTop="25dp"
+                    android:text="북마크 라이브러리"
+                    android:textColor="#2699FB"
+                    android:textSize="50px"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/book_icon1"
+                    android:layout_width="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.1"
+                    android:background="#ffffff"
+                    android:src="@drawable/search_icon" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.05"
+                android:background="#74BFFF"
+                android:weightSum="1">
+
+                <Button
+                    android:id="@+id/book_btn1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.85"
+                    android:backgroundTint="#ffffff"
+                    android:onClick="mOnClick"
+                    android:text="전체"
+                    android:textColor="#2699FB"
+                    android:translationX="15dp" />
+
+                <Button
+                    android:id="@+id/book_btn2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.85"
+                    android:backgroundTint="#ffffff"
+                    android:onClick="mOnClick"
+                    android:text="캐주얼"
+                    android:textColor="#2699FB"
+                    android:translationX="30dp" />
+
+                <Button
+                    android:id="@+id/book_btn3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.85"
+                    android:backgroundTint="#ffffff"
+                    android:onClick="mOnClick"
+                    android:text="섹시"
+                    android:textColor="#2699FB"
+                    android:translationX="45dp" />
+
+                <Button
+                    android:id="@+id/book_btn4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.85"
+                    android:backgroundTint="#ffffff"
+                    android:onClick="mOnClick"
+                    android:text="큐티"
+                    android:textColor="#2699FB"
+                    android:translationX="60dp" />
+
+                <Button
+                    android:id="@+id/book_btn5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.85"
+                    android:width="10dp"
+                    android:backgroundTint="#ffffff"
+                    android:onClick="mOnClick"
+                    android:text="댄디"
+                    android:textColor="#2699FB"
+                    android:translationX="75dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.8"
+                android:orientation="vertical"
+                android:weightSum="1"
+                android:id="@+id/mycodylib">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="210dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#E3F2FF">
+                        <ImageView
+                            android:id="@+id/book_cody1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+                        <ImageView
+                            android:id="@+id/bookmark_cody1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF">
+                        <ImageView
+                            android:id="@+id/book_cody2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+                        <ImageView
+                            android:id="@+id/bookmark_cody2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#E3F2FF">
+                        <ImageView
+                            android:id="@+id/book_cody3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+                        <ImageView
+                            android:id="@+id/bookmark_cody3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            />
+                    </FrameLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="210dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF">
+                        <ImageView
+                            android:id="@+id/book_cody4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+                        <ImageView
+                            android:id="@+id/bookmark_cody4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#E3F2FF">
+                        <ImageView
+                            android:id="@+id/book_cody5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+                        <ImageView
+                            android:id="@+id/bookmark_cody5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF">
+                        <ImageView
+                            android:id="@+id/book_cody6"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+                        <ImageView
+                            android:id="@+id/bookmark_cody6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            />
+                    </FrameLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="210dp"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#E3F2FF">
+                        <ImageView
+                            android:id="@+id/book_cody7"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+                        <ImageView
+                            android:id="@+id/bookmark_cody7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF">
+                        <ImageView
+                            android:id="@+id/book_cody8"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+                        <ImageView
+                            android:id="@+id/bookmark_cody8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#E3F2FF">
+                        <ImageView
+                            android:id="@+id/book_cody9"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+                        <ImageView
+                            android:id="@+id/bookmark_cody9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            />
+                    </FrameLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</FrameLayout>

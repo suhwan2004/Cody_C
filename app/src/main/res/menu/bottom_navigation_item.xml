@@ -2,15 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/item_home"
-        android:title="Home"
+        android:title="홈 화면"
         android:icon="@mipmap/ic_launcher_round"/>
 
     <item android:id="@+id/item_clothstyle"
-        android:title="ClothStyle"
+        android:title="전체 코디보기"
         android:icon="@mipmap/ic_launcher_round"/>
 
-    <item android:id="@+id/item_citysearch"
-        android:title="CitySearch"
+    <item android:id="@+id/item_mycodylib"
+        android:title="나의 코디"
         android:icon="@mipmap/ic_launcher_round"/>
 
 </menu>

@@ -17,8 +17,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.8"
-            android:id="@+id/main_cody_image"
-            android:src = "@drawable/cody1">
+            android:id="@+id/main_cody_image">
         </ImageView>
         <LinearLayout
             android:layout_width="0dp"

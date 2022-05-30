@@ -50,6 +50,7 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -141,8 +142,7 @@ public class fragment_main extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        rootView=  inflater.inflate(R.layout.fragment_main, container, false);
-
+        rootView =  inflater.inflate(R.layout.fragment_main, container, false);
         initView(inflater, container, savedInstanceState);
         displayWeather(rootView.getContext());
         recommendColorMatching();
@@ -214,14 +214,12 @@ public class fragment_main extends Fragment {
         float lon = PreferenceManager.getFloat(context,"LONGITUDE");
         String address;
         String storedAddress = PreferenceManager.getString(context,"CITY");
-
         if(storedAddress == null) address = getCurrentAddress(lat, lon);
         else address = storedAddress;
 
         find_weather(lat,lon);
         find_future_weather(lat,lon);
         closeProgressDialog();
-
         if(address!=null){
             region.setText(PreferenceManager.getString(getContext(),"CITY"));
         }
@@ -291,6 +289,7 @@ public class fragment_main extends Fragment {
 
                     //기온
                     temperature = main_object.getString("temp");
+                    PreferenceManager.setInt(getContext(), "temp", main_object.getInt("temp"));
                     temperature = String.valueOf(Math.round(Double.valueOf(temperature)));
                     temp_extra = temperature;
                     cur_temperature = Integer.parseInt(temperature);
@@ -338,7 +337,6 @@ public class fragment_main extends Fragment {
                     JSONArray hourly_object = response.getJSONArray("hourly");
                     JSONArray daily_object = response.getJSONArray("daily");
 
-                    Log.e("daily_object", String.valueOf(daily_object));
                     for(int i=1; i<daily_object.length(); i++){
                         JSONObject rec = daily_object.getJSONObject(i);
                         JSONObject get_temp = rec.getJSONObject("temp");

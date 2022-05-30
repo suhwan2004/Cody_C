@@ -23,8 +23,11 @@ import com.example.cody_c.util.GpsTracker;
 import com.example.cody_c.util.PreferenceManager;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -32,6 +35,7 @@ public class SplashActivity extends AppCompatActivity {
     private static final int GPS_ENABLE_REQUEST_CODE = 2001;
     private static final int PERMISSIONS_REQUEST_CODE = 100;
     String[] REQUIRED_PERMISSIONS  = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
+    private Set<String> bookMark = new HashSet<String>();
 
     private double latitude=0.0;
     private double longitude=0.0;
@@ -71,6 +75,7 @@ public class SplashActivity extends AppCompatActivity {
         latitude = gpsTracker.getLatitude();
         longitude = gpsTracker.getLongitude();
 
+
         String address="";
 
         // 앱 처음 시작 시
@@ -100,6 +105,13 @@ public class SplashActivity extends AppCompatActivity {
         address = AddressParsingUtil.getSigunguFromFullAddress(address);
         PreferenceManager.setString(getApplicationContext(),"CITY",address);
         PreferenceManager.setInt(this, "REGION_NUMBER",1);
+
+
+        if(PreferenceManager.getStringSet(this,"bookMark").size() == 0){
+            //만약, 북마크가 없거나 북마크 내 저장된 코디가 없으면 새로 생성.
+            PreferenceManager.setStringSet(this, "bookMark", bookMark);
+        }
+
     }
 
     public String getCurrentAddress( double latitude, double longitude) {

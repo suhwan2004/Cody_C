@@ -4,6 +4,9 @@ package com.example.cody_c.util;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class PreferenceManager {
 
     public static final String PREFERENCES_NAME = "PREF_WEATHER";
@@ -12,6 +15,7 @@ public class PreferenceManager {
     private static final int DEFAULT_VALUE_INT = -1;
     private static final long DEFAULT_VALUE_LONG = -1L;
     private static final float DEFAULT_VALUE_FLOAT = -1F;
+    private static final Set<String> DEFAULT_VALUE_STRINGSET = new HashSet<String>();
 
     private static SharedPreferences getPreferences(Context context) {
         return context.getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE);
@@ -52,6 +56,13 @@ public class PreferenceManager {
         editor.commit();
     }
 
+    public static void setStringSet(Context context, String key, Set<String> set) {
+        SharedPreferences prefs = getPreferences(context);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putStringSet(key, set);
+        editor.commit();
+    }
+
     public static String getString(Context context, String key) {
         SharedPreferences prefs = getPreferences(context);
         String value = prefs.getString(key, DEFAULT_VALUE_STRING);
@@ -81,6 +92,14 @@ public class PreferenceManager {
         float value = prefs.getFloat(key, DEFAULT_VALUE_FLOAT);
         return value;
     }
+
+    public static Set<String> getStringSet(Context context, String key) {
+        SharedPreferences prefs = getPreferences(context);
+        Set<String> value = prefs.getStringSet(key, DEFAULT_VALUE_STRINGSET);
+        return value;
+    }
+
+
 
     public static void removeKey(Context context, String key) {
         SharedPreferences prefs = getPreferences(context);

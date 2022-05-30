@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.cody_c.pagefragment.fragment_cody_lib;
 import com.example.cody_c.pagefragment.fragment_citysearch;
 import com.example.cody_c.pagefragment.fragment_clothstyle;
+import com.example.cody_c.pagefragment.fragment_cody_mylib;
 import com.example.cody_c.pagefragment.fragment_main;
 import com.example.cody_c.pagefragment.fragment_main_codyimg;
 import com.example.cody_c.pagefragment.fragment_main_weather;
@@ -28,7 +29,7 @@ import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Fragment mainFragment, clothStyleFragment, citySearchFragment;
+    private Fragment mainFragment, clothStyleFragment, myCodyLibFragment;
     private GpsTracker gpsTracker;
 
     private static final int GPS_ENABLE_REQUEST_CODE = 2001;
@@ -67,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.item_clothstyle:
                         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, clothStyleFragment).addToBackStack(null).commit();
                         return true;
-                    case R.id.item_citysearch:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, citySearchFragment).addToBackStack(null).commit();
+                    case R.id.item_mycodylib:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, myCodyLibFragment).addToBackStack(null).commit();
                         return true;
                 }
                 return false;
@@ -87,13 +88,13 @@ public class MainActivity extends AppCompatActivity {
     private void createFragment() {
         mainFragment = new fragment_main(); //메인 페이지
         clothStyleFragment = new fragment_clothstyle(); // 옷 스타일 페이지
-        citySearchFragment = new fragment_citysearch(); // 도시 추천 페이지
+        myCodyLibFragment = new fragment_cody_mylib(); // 도시 추천 페이지
     }
 
     private void showMainNoticeDialog() {
         AlertDialog alertDialog = new AlertDialog.Builder(this)
                 .setTitle("앱 처음 실행 시 공지")
-                .setMessage("설정창에 들어가서 날씨 정보를 받을 위치를 설정하세요!")
+                .setMessage("온도를 누르면 상세한 날씨를 볼 수 있으며, 코디를 누르면 추천 코디로 이동합니다!")
                 .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
