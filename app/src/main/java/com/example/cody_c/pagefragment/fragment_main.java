@@ -76,7 +76,6 @@ public class fragment_main extends Fragment {
     private String bodily_temperature;
     private TextView current_temp_diff;
     private TextView current_weather_ment;
-    private TextView current_temp_ment;
     private TextView current_temp_diff_ment;
     private ImageView color1_up;
     private ImageView color1_down;
@@ -192,7 +191,6 @@ public class fragment_main extends Fragment {
         current_bodily_temp=(TextView)rootView.findViewById(R.id.main_bodily_temp); //체감 온도
         current_temp_diff = (TextView)rootView.findViewById(R.id.main_temp_diff); //일교차
         current_weather_ment = (TextView)rootView.findViewById(R.id.main_weather_ment); // 날씨에 따른 멘트
-        current_temp_ment = (TextView)rootView.findViewById(R.id.main_temp_ment); //온도에 따른 멘트
         current_temp_diff_ment = (TextView)rootView.findViewById(R.id.main_temp_diff_ment); // 일교차에 따른 멘트
 
         color1_up = (ImageView)rootView.findViewById(R.id.color1_up);

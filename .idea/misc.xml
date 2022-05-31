@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/suhwa/OneDrive/Cody_C/app/src/main/res/drawable-v24/menu_button.xml" value="0.1" />
+        <entry key="..\:/Users/suhwa/OneDrive/Cody_C/app/src/main/res/drawable/down_border.xml" value="0.158" />
         <entry key="..\:/Users/suhwa/OneDrive/Cody_C/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/suhwa/OneDrive/Cody_C/app/src/main/res/layout/codylib_10up.xml" value="0.1" />
         <entry key="..\:/Users/suhwa/OneDrive/Cody_C/app/src/main/res/layout/codylib_12up.xml" value="0.18802083333333333" />
@@ -25,7 +26,7 @@
         <entry key="..\:/Users/suhwa/OneDrive/Cody_C/app/src/main/res/layout/fragment_cody_lib_6up.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/suhwa/OneDrive/Cody_C/app/src/main/res/layout/fragment_cody_mylib.xml" value="0.24592391304347827" />
         <entry key="..\:/Users/suhwa/OneDrive/Cody_C/app/src/main/res/layout/fragment_fragement_cody_lib.xml" value="0.14722222222222223" />
-        <entry key="..\:/Users/suhwa/OneDrive/Cody_C/app/src/main/res/layout/fragment_main.xml" value="0.1875" />
+        <entry key="..\:/Users/suhwa/OneDrive/Cody_C/app/src/main/res/layout/fragment_main.xml" value="0.33" />
         <entry key="..\:/Users/suhwa/OneDrive/Cody_C/app/src/main/res/layout/fragment_main_codyimg.xml" value="0.358695652173913" />
         <entry key="..\:/Users/suhwa/OneDrive/Cody_C/app/src/main/res/layout/fragment_main_weather.xml" value="0.18" />
         <entry key="..\:/Users/suhwa/OneDrive/Cody_C/app/src/main/res/layout/item_cities.xml" value="0.24592391304347827" />

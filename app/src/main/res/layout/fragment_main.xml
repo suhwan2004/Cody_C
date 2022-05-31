@@ -143,7 +143,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="0.6"
-                android:weightSum="3"
+                android:weightSum="2"
                 android:orientation="vertical">
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -164,31 +164,16 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:background="@drawable/down_border">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center|left"
-                        android:textColor="@color/Dodger_Blue"
-                        android:textSize="13dp"
-                        android:text = "어제에 비해 쌀쌀한 편이니 \n 어제보다는 따뜻하게 입는게 좋습니다."
-                        android:layout_marginLeft="30dp"
-                        android:id="@+id/main_temp_ment">
-                    </TextView>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:background="@color/Maya_Blue">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center|right"
                         android:textSize="13dp"
                         android:textColor="@color/Dodger_Blue"
                         android:text = "일교차가 큰 편이니 얇은 겉옷을 챙기는 게 좋겠네요."
-                        android:layout_marginRight="30dp"
+                        android:layout_marginLeft="30dp"
                         android:id="@+id/main_temp_diff_ment"
                         ></TextView>
                 </LinearLayout>
