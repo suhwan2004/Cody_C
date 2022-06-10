@@ -56,9 +56,7 @@ import java.util.Locale;
 
 public class fragment_main_weather extends Fragment {
     private View rootView;
-    //private DrawerLayout drawerLayout;
-    //private ImageButton menuButton;
-    //private NavigationView navigationView;
+
     private TextView dateNow;
     private SwipeRefreshLayout swipeRefreshLayout;
     private ImageButton searchButton;
@@ -80,46 +78,25 @@ public class fragment_main_weather extends Fragment {
     private TextView current_humidity;
     private TextView current_sunrise;
     private TextView current_sunset;
-    private String temperature;
-    private String bodily_temperature;
 
-    private String Daily_image;
-    private ImageButton search_button;
-    private String dailyLow;
-    private String dailyHigh;
-    private String temp_f;
-
-    private String rain_1h;
-    private String rain_3h;
-    private String address_text;
-    private String level1;
-    private String level2;
-    private ArrayList<HourlyItem> hourlyItemList = new ArrayList<>();
-    private ArrayList<DailyItem> dailyItemList = new ArrayList<>();
-    private String temp_extra;
-
+    private ArrayList<HourlyItem> hourlyItemList;
+    private ArrayList<DailyItem> dailyItemList;
+    Bundle bundle;
     private ProgressDialog progressDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_main_weather, container, false);
+        bundle = getArguments();
         initView(inflater, container, savedInstanceState);
         displayWeather(rootView.getContext());
+
         closeProgressDialog();
         return rootView;
     }
 
-    /*
-    @Override
-    public void onResume() {
-        super.onResume();
-        if(PreferenceManager.getBoolean(getContext(),"IS_ADDRESS_CHANGED")==true){
-            PreferenceManager.setBoolean(getContext(),"IS_ADDRESS_CHANGED",false);
-            displayWeather(getContext());
-        }
-    }
-*/
+
     private void initView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         region=(TextView)rootView.findViewById(R.id.region_text);
         current_temp = (TextView)rootView.findViewById(R.id.temp_now);
@@ -152,14 +129,15 @@ public class fragment_main_weather extends Fragment {
         openProgressDialog();
         float lat = PreferenceManager.getFloat(context,"LATITUDE");
         float lon = PreferenceManager.getFloat(context,"LONGITUDE");
+
         String address;
         String storedAddress = PreferenceManager.getString(context,"CITY");
 
         if(storedAddress == null) address = getCurrentAddress(lat, lon);
         else address = storedAddress;
 
-        find_weather(lat,lon);
-        find_future_weather(lat,lon);
+        find_weather();
+        find_future_weather();
         closeProgressDialog();
 
         if(address!=null){
@@ -174,228 +152,64 @@ public class fragment_main_weather extends Fragment {
         }
     }
 
-    public void find_weather(float latitude, float longitude){
-        String url="http://api.openweathermap.org/data/2.5/weather?appid=bb5a2651f01077f8fcfec1ba21425991&units=metric&id=1835848&lang=kr"; //실질적으로 날씨 정보를 받아오는 부분.
-        url += "&lat="+String.valueOf(latitude)+"&lon="+String.valueOf(longitude);
-        Log.e("SEULGI WEATHER API URL", url);
+    public void find_weather(){
+        //기온
+        current_temp.setText(bundle.getString("temperature")+getString(R.string.temperature_unit));
 
-        JsonObjectRequest jor = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try{
-                    JSONObject main_object = response.getJSONObject("main");
-                    JSONArray weather_object = response.getJSONArray("weather");
-                    JSONObject sys_object = response.getJSONObject("sys");
+        //체감온도
+        current_bodily_temp.setText(bundle.getString("bodily_temperature")+getString(R.string.temperature_unit));
 
-                    //기온
-                    temperature = main_object.getString("temp");
-                    temperature = String.valueOf(Math.round(Double.valueOf(temperature)));
-                    temp_extra = temperature;
-                    current_temp.setText(temperature+getString(R.string.temperature_unit));
+        //최저~ 최고온도
+        current_temp_min_max.setText(bundle.getString("temp_diff_str"));
 
-                    //체감온도
-                    bodily_temperature = main_object.getString("feels_like");
-                    bodily_temperature = String.valueOf(Math.round(Double.valueOf(bodily_temperature)));
-                    current_bodily_temp.setText(bodily_temperature+getString(R.string.temperature_unit));
+        //기압
+        current_pressure.setText(bundle.getString("pressure")+getString(R.string.pressure_unit));
 
-                    //최고온도
-                    String temp_max = main_object.getString("temp_max");
-                    temp_max = String.valueOf(Math.round(Double.valueOf(temp_max)));
+        //습도
+        current_humidity.setText(bundle.getString("humidity")+getString(R.string.percent_unit));
 
-                    //최저온도
-                    String temp_min = main_object.getString("temp_min");
-                    temp_min = String.valueOf(Math.round(Double.valueOf(temp_min)));
+        //일출
+        current_sunrise.setText(bundle.getString("sunrise"));
 
-                    //최저~ 최고온도
-                    current_temp_min_max.setText(temp_min + " ~ " + temp_max + getString(R.string.temperature_unit));
+        //일몰
+        current_sunset.setText(bundle.getString("sunset"));
 
-                    //기압
-                    String pressure = main_object.getString("pressure");
-                    current_pressure.setText(pressure+getString(R.string.pressure_unit));
+        //강우량
+        current_rain.setText(bundle.getString("curRain"));
 
-                    //습도
-                    String humidity = main_object.getString("humidity");
-                    current_humidity.setText(humidity+getString(R.string.percent_unit));
+        //날씨
+        current_desc.setText(bundle.getString("description"));
 
-                    //일출
-                    String sunrise = sys_object.getString("sunrise");
-                    long timestamp = Long.parseLong(sunrise);
-                    Date date = new java.util.Date(timestamp*1000L);
-                    SimpleDateFormat sdf = new java.text.SimpleDateFormat("a hh:mm");
-                    sdf.setTimeZone(java.util.TimeZone.getTimeZone("GMT+9"));
-                    sunrise = sdf.format(date);
-                    current_sunrise.setText(sunrise);
-
-                    //일몰
-                    String sunset = sys_object.getString("sunset");
-                    timestamp = Long.parseLong(sunset);
-                    date = new java.util.Date(timestamp*1000L);
-                    sdf.setTimeZone(java.util.TimeZone.getTimeZone("GMT+9"));
-                    sunset = sdf.format(date);
-                    current_sunset.setText(sunset);
-
-                    //강우량
-                    if(response.has("rain")){
-                        JSONObject rain_object = response.getJSONObject("rain");
-                        if(rain_object.has("1h")){
-                            rain_1h = rain_object.getString("1h");
-                            rain_1h = String.valueOf(Math.round(Double.valueOf(rain_1h)*10));
-                            current_rain.setText(rain_1h+getString(R.string.precipitation_unit));
-
-                        }
-                        else if(rain_object.has("3h")){
-                            rain_3h = rain_object.getString("3h");
-                            rain_3h = String.valueOf(Math.round(Double.valueOf(rain_3h)*10));
-                            current_rain.setText(rain_3h+getString(R.string.precipitation_unit));
-                        }
-                        else {
-                            current_rain.setText("0"+getString(R.string.precipitation_unit));
-                        }
-                    }
-                    else {
-                        current_rain.setText("0"+getString(R.string.precipitation_unit));
-                    }
-
-                    JSONObject weather= weather_object.getJSONObject(0);
-                    String description = weather.getString("description");
-                    current_desc.setText(description);
-
-                    //날씨 아이콘
-                    String icon = weather.getString("icon");
-                    int resID = getResId("icon_"+icon, R.drawable.class);
-                    weathericon.setImageResource(resID);
-
-                }catch(JSONException e)
-                {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e("SEULGI API RESPONSE",error.toString());
-            }
-        }
-        );
-
-        RequestQueue queue =  Volley.newRequestQueue(getActivity().getApplicationContext());
-        queue.add(jor);
-
+        //날씨 아이콘
+        weathericon.setImageResource(bundle.getInt("iconResID"));
     }
 
-    public void find_future_weather(float latitude, float longitude) {
-        //차후 날씨를 보여주는 것 같음.
-        String url="http://api.openweathermap.org/data/2.5/onecall?appid=bb5a2651f01077f8fcfec1ba21425991&units=metric&id=1835848&lang=kr";
-        //http://api.openweathermap.org/data/2.5/onecall?appid=bb5a2651f01077f8fcfec1ba21425991&units=metric&id=1835848&lang=kr&lat=35&lon=127
-        url += "&lat="+String.valueOf(latitude)+"&lon="+String.valueOf(longitude);
+    public void find_future_weather() {
+        //차후 날씨
 
-        if(!hourlyItemList.isEmpty()) hourlyItemList.clear();
-        hourlyItemList = new ArrayList<>();
+        hourlyItemList = bundle.getParcelableArrayList("hourlyItemList");
+        dailyItemList = bundle.getParcelableArrayList("dailyItemList");
 
-        if(!dailyItemList.isEmpty()) dailyItemList.clear();
-        dailyItemList = new ArrayList<>();
+        /* HOURLY RECYCLERVIEW */
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.hourly_recycler);
+        LinearLayoutManager layoutManager_h= new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
+        recyclerView.setLayoutManager(layoutManager_h);
 
-        JsonObjectRequest jor = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try{
-                    JSONArray hourly_object = response.getJSONArray("hourly");
-                    JSONArray daily_object = response.getJSONArray("daily");
+        HourlyItemAdapter adapter_h;
+        adapter_h = new HourlyItemAdapter(getActivity(),hourlyItemList);
+        recyclerView.setAdapter(adapter_h);
+        adapter_h.notifyDataSetChanged();
 
-                    for(int i=0;i<hourly_object.length() && i<36; i+=2){ //2시간 간격 | 18번만 나오게
-                        JSONObject rec= hourly_object.getJSONObject(i);
+        /*DAILY RECYCLERVIEW */
+        recyclerView2 = (RecyclerView) rootView.findViewById(R.id.daily_recycler);
+        LinearLayoutManager layoutManager= new LinearLayoutManager(getActivity());
+        recyclerView2.setLayoutManager(layoutManager);
 
-                        //시간
-                        String dt = rec.getString("dt");
-                        long timestamp = Long.parseLong(dt);
-                        Date date = new java.util.Date(timestamp*1000L);
-                        SimpleDateFormat sdf = new java.text.SimpleDateFormat("a h" + "시");
-                        sdf.setTimeZone(java.util.TimeZone.getTimeZone("GMT+9"));
-                        dt = sdf.format(date);
-
-                        //온도
-                        temp_f = rec.getString("temp");
-                        temp_f = String.valueOf(Math.round(Double.valueOf(temp_f)));
-
-                        JSONArray weather_object = rec.getJSONArray("weather");
-                        JSONObject weather = weather_object.getJSONObject(0);
-                        String icon = weather.getString("icon");
-                        int resID = getResId("icon_"+icon, R.drawable.class);
-
-                        if(i==0){
-                            hourlyItemList.add(new HourlyItem("지금",resID,temp_f+getString(R.string.temperature_unit)));
-                        }
-                        else {
-                            hourlyItemList.add(new HourlyItem(dt,resID,temp_f+getString(R.string.temperature_unit)));
-                        }
-                    }
-
-                    for(int i=1; i<daily_object.length(); i++){
-                        JSONObject rec = daily_object.getJSONObject(i);
-                        JSONObject get_temp = rec.getJSONObject("temp");
-
-                        //요일
-                        String dt = rec.getString("dt");
-                        long timestamp = Long.parseLong(dt);
-                        Date date = new java.util.Date(timestamp*1000L);
-                        SimpleDateFormat sdf = new java.text.SimpleDateFormat("EEEE", Locale.KOREAN);
-                        sdf.setTimeZone(java.util.TimeZone.getTimeZone("GMT+9"));
-                        dt = sdf.format(date);
-
-                        //최저기온
-                        dailyLow = get_temp.getString("min");
-                        dailyLow = String.valueOf(Math.round(Double.valueOf(dailyLow)));
-
-                        //최고기온
-                        dailyHigh = get_temp.getString("max");
-                        dailyHigh = String.valueOf(Math.round(Double.valueOf(dailyHigh)));
-
-                        //아이콘
-                        JSONArray weather_object = rec.getJSONArray("weather");
-                        JSONObject weather = weather_object.getJSONObject(0);
-                        String icon = weather.getString("icon");
-                        int resID = getResId("icon_"+icon, R.drawable.class);
-                        ;
-                        dailyItemList.add(new DailyItem(dt,dailyLow+getString(R.string.temperature_unit),dailyHigh+getString(R.string.temperature_unit),resID));
-                    }
-
-                    /* HOURLY RECYCLERVIEW */
-                    recyclerView = (RecyclerView) rootView.findViewById(R.id.hourly_recycler);
-                    LinearLayoutManager layoutManager_h= new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false);
-                    recyclerView.setLayoutManager(layoutManager_h);
-
-                    HourlyItemAdapter adapter_h;
-                    adapter_h = new HourlyItemAdapter(getActivity(),hourlyItemList);
-                    recyclerView.setAdapter(adapter_h);
-                    adapter_h.notifyDataSetChanged();
-
-                    /*DAILY RECYCLERVIEW */
-                    recyclerView2 = (RecyclerView) rootView.findViewById(R.id.daily_recycler);
-                    LinearLayoutManager layoutManager= new LinearLayoutManager(getActivity());
-                    recyclerView2.setLayoutManager(layoutManager);
-
-                    DailyItemAdapter adapter;
-                    adapter = new DailyItemAdapter(getActivity(),dailyItemList);
-                    recyclerView2.setAdapter(adapter);
-                    adapter.notifyDataSetChanged();
-                    progressDialog.dismiss();
-
-                }catch(JSONException e)
-                {
-                    e.printStackTrace();
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.e("SEULGI API RESPONSE",error.toString());
-            }
-        }
-        );
-
-        RequestQueue queue =  Volley.newRequestQueue(getActivity().getApplicationContext());
-        queue.add(jor);
-
+        DailyItemAdapter adapter;
+        adapter = new DailyItemAdapter(getActivity(),dailyItemList);
+        recyclerView2.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+        progressDialog.dismiss();
     }
 
 
