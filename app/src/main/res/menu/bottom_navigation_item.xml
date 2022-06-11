@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-
     <item android:id="@+id/item_home"
         android:title="홈 화면"
-        android:icon="@mipmap/ic_launcher_round"/>
+        android:icon = "@drawable/icon_home_white"/>
 
     <item android:id="@+id/item_clothstyle"
-        android:title="전체 코디보기"
-        android:icon="@mipmap/ic_launcher_round"/>
+        android:title="전체 코디"
+        android:icon = "@drawable/icon_codylibrary"/>
 
     <item android:id="@+id/item_mycodylib"
         android:title="나의 코디"
-        android:icon="@mipmap/ic_launcher_round"/>
+        android:icon = "@drawable/icon_menu"/>
 
 </menu>

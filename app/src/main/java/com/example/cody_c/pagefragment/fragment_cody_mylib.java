@@ -76,9 +76,12 @@ public class fragment_cody_mylib extends Fragment {
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_cody_mylib, container, false);
         myCodyLib = rootView.findViewById(R.id.mycodylib);
-        bookMarkSet = PreferenceManager.getStringSet(getContext(),"bookMark");
 
-        String[] bookMarkArr = bookMarkSet.toArray(new String[0]); //북마크 hashSet을 String[]로 변환
+        //SharedPreference 내에 HashSet<String> 타입으로 존재하는 북마크 받아옥
+        bookMarkSet = PreferenceManager.getStringSet(getContext(),"bookMark");
+        //북마크를 활용하기 위해 String[]로 변환
+        String[] bookMarkArr = bookMarkSet.toArray(new String[0]);
+
         int [] myLibCody = {R.id.book_cody1,R.id.book_cody2, R.id.book_cody3, R.id.book_cody4, R.id.book_cody5, R.id.book_cody6, R.id.book_cody7, R.id.book_cody8, R.id.book_cody9};
         int [] myLibBookMark = {R.id.bookmark_cody1,R.id.bookmark_cody2,R.id.bookmark_cody3,R.id.bookmark_cody4,R.id.bookmark_cody5,R.id.bookmark_cody6,R.id.bookmark_cody7,R.id.bookmark_cody8,R.id.bookmark_cody9};
         int curIdx = 0;

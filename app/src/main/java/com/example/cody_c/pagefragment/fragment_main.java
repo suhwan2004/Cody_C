@@ -163,6 +163,7 @@ public class fragment_main extends Fragment {
         rootView =  inflater.inflate(R.layout.fragment_main, container, false);
         curTime = System.currentTimeMillis();
 
+        //앱 처음 구동 시 bundle 초기화
         if(PreferenceManager.getBoolean(rootView.getContext(), "weatherInfoExist") == false) {
             bundle = new Bundle();
         }
@@ -171,6 +172,9 @@ public class fragment_main extends Fragment {
         displayWeather(rootView.getContext());
         recommendColorMatching();
 
+        //앱 처음 구동시
+        //1. SharedPreference 내 key : "weatherInfoExist"의 값을 true로 둠으로써, 앱을 이미 구동한 상황임을 저장
+        //2. SharedPreference 내 key : "lastRequestTime"의 값을 첫 request를 받은 시간으로 설정
         if(PreferenceManager.getBoolean(rootView.getContext(), "weatherInfoExist") == false) {
             PreferenceManager.setBoolean(rootView.getContext(), "weatherInfoExist", true);
             PreferenceManager.setLong(rootView.getContext(), "lastRequestTime", curTime);
@@ -248,9 +252,10 @@ public class fragment_main extends Fragment {
         Long lastRequestTime = PreferenceManager.getLong(rootView.getContext(), "lastRequestTime");
 
         /*
-        1. 한 번도 날씨 정보를 request하지 않았거나 or 마지막 request 시간이 존재하지 않거나
-        2. 마지막 request로부터 1시간이 지났거나
-            => request 실행
+        1. 한 번도 날씨 정보를 request하지 않았거나 or 마지막 request 시간이 존재하지 않는 경우
+        2. 마지막 request로부터 1시간이 지난 경우
+
+        해당 조건에 걸릴 시, request새로 받고 해당 정보로 랜더링 그리고 마지막 request 시간 갱신.
          */
 
         if(PreferenceManager.getBoolean(rootView.getContext(), "weatherInfoExist") == false ||
@@ -258,6 +263,7 @@ public class fragment_main extends Fragment {
         curTime - lastRequestTime >= 3600000){
             find_weather(lat,lon, true);
             find_future_weather(lat,lon, true);
+            PreferenceManager.setLong(rootView.getContext(), "lastRequestTime", curTime);
         }else{
             find_weather(lat,lon,false);
             find_future_weather(lat,lon,false);
@@ -316,8 +322,6 @@ public class fragment_main extends Fragment {
         }
     }
 
-
-
     public void find_weather(float latitude, float longitude, boolean isRequiredRequest){
         String url="http://api.openweathermap.org/data/2.5/weather?appid=bb5a2651f01077f8fcfec1ba21425991&units=metric&id=1835848&lang=kr"; //실질적으로 날씨 정보를 받아오는 부분.
         url += "&lat="+String.valueOf(latitude)+"&lon="+String.valueOf(longitude);
@@ -338,7 +342,9 @@ public class fragment_main extends Fragment {
                         temp_extra = temperature;
                         cur_temperature = Integer.parseInt(temperature);
 
+                        //기온을 bundle에 저장.
                         bundle.putString("temperature", temperature);
+
                         current_temp.setText(temperature + getString(R.string.temperature_unit));
 
                         //체감온도
@@ -586,23 +592,17 @@ public class fragment_main extends Fragment {
         return;
     }
 
-    public void setCurrentTempMent(){
-        //현재와 어제의 온도를 비교하여 상황을 말해주는 멘트 => 미구현
-        //문제점
-        /*
-        1. 과거의 날씨를 조회할 수 있는 openWeatherMap API는 유료임
-        2. 사람들이 어제에 대한 비교를 궁금해 할까? 일교차 부분과 고유성이 약간 겹치기도 함.
-         */
-    }
-
     public void setCurrentTempDiffMent(){
         //현재 일교차에 따른 추천 멘트
         String ment;
-        if(temp_diff>=20) ment = "일교차가 매우 커요.\n두꺼운 겉옷과 목도리를 챙겨주세요.";
+
+        if(temp_diff>=20) ment = "일교차가 매우 커요.\n외출을 삼가시는게 좋겠어요.";
         else if(temp_diff >= 10) ment = "일교차가 큰 편입니다.\n얇은 겉옷을 챙기는게 좋겠네요,";
         else if(temp_diff >= 5) ment = "일교차가 조금 있는 편이에요.\n온도에 민감하시면 얇은 겉옷을 챙기시는게 좋겠네요.";
         else ment = "일교차가 완만해요.\n편안한 외출 되시길 바랍니다.";
+
         current_temp_diff_ment.setText(ment);
+
 
     }
 

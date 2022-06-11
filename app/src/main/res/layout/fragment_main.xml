@@ -156,9 +156,9 @@
                         android:gravity="center|right"
                         android:textSize="13dp"
                         android:textColor="@color/Dodger_Blue"
-                        android:text = "오늘 날씨에는 자켓, 셔츠, 가디건,\n 야상, 청바지, 면바지 코디가 좋아요!"
+                        android:text = "일교차가 큰 편입니다! 감기 조심하세요!"
                         android:layout_marginRight="30dp"
-                        android:id="@+id/main_weather_ment"
+                        android:id="@+id/main_temp_diff_ment"
                         ></TextView>
                 </LinearLayout>
                 <LinearLayout
@@ -172,9 +172,9 @@
                         android:gravity="center|left"
                         android:textSize="13dp"
                         android:textColor="@color/Dodger_Blue"
-                        android:text = "일교차가 큰 편이니 얇은 겉옷을 챙기는 게 좋겠네요."
+                        android:text = "오늘 날씨에는 자켓, 셔츠, 가디건,\n 야상, 청바지, 면바지 코디가 좋아요!"
                         android:layout_marginLeft="30dp"
-                        android:id="@+id/main_temp_diff_ment"
+                        android:id= "@+id/main_weather_ment"
                         ></TextView>
                 </LinearLayout>
             </LinearLayout>
