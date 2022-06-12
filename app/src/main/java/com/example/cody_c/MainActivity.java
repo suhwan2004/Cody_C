@@ -7,28 +7,17 @@ import androidx.fragment.app.FragmentTransaction;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
-import android.widget.ImageView;
-import android.widget.Toast;
 
-import com.example.cody_c.pagefragment.fragment_cody_lib;
-import com.example.cody_c.pagefragment.fragment_citysearch;
 import com.example.cody_c.pagefragment.fragment_clothstyle;
 import com.example.cody_c.pagefragment.fragment_cody_mylib;
 import com.example.cody_c.pagefragment.fragment_main;
-import com.example.cody_c.pagefragment.fragment_main_codyimg;
-import com.example.cody_c.pagefragment.fragment_main_weather;
 import com.example.cody_c.util.GpsTracker;
 import com.example.cody_c.util.PreferenceManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
-
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.Set;
 
 
 public class MainActivity extends AppCompatActivity {

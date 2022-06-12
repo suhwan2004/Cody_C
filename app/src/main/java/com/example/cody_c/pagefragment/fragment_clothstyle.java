@@ -4,14 +4,21 @@ import android.content.res.TypedArray;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
+
+import com.example.cody_c.adapter.ClothListAdapter;
+import com.example.cody_c.data.ClothNode;
 import com.example.cody_c.dto.CustomDTO;
 import com.example.cody_c.R;
 import com.example.cody_c.adapter.CustomAdapter;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,9 +26,12 @@ import com.example.cody_c.adapter.CustomAdapter;
  * create an instance of this fragment.
  */
 public class fragment_clothstyle extends Fragment {
-
+    ArrayList<ClothNode> codyDataList;
     private CustomAdapter adapter;
     private ListView listView;
+
+    private Fragment page_5down, page_6up, page_10up, page_12up, page_17up, page_20up, page_23up, page_27up;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -67,29 +77,76 @@ public class fragment_clothstyle extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_clothstyle, container, false);
-        adapter = new CustomAdapter();
+        this.InitializeCodyData();
+        this.InitializeCodyLibraryPages();
         listView = (ListView) rootView.findViewById(R.id.clothstyle_listView);
+        final ClothListAdapter clothListAdapter = new ClothListAdapter(rootView.getContext(), codyDataList);
 
-        setData();
+        listView.setAdapter(clothListAdapter);
 
-        listView.setAdapter(adapter);
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        androidx.fragment.app.FragmentTransaction ft = fragmentManager.beginTransaction();
+
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView parent, View view, int position, long id) {
+                switch(position){
+                    case 0:
+                        ft.replace(R.id.frameLayout, page_5down).addToBackStack(null).commit();
+                        return;
+                    case 1:
+                        ft.replace(R.id.frameLayout,page_6up).addToBackStack(null).commit();
+                        return;
+                    case 2:
+                        ft.replace(R.id.frameLayout,page_10up).addToBackStack(null).commit();
+                        return;
+                    case 3:
+                        ft.replace(R.id.frameLayout,page_12up).addToBackStack(null).commit();
+                        return;
+                    case 4:
+                        ft.replace(R.id.frameLayout,page_17up).addToBackStack(null).commit();
+                        return;
+                    case 5:
+                        ft.replace(R.id.frameLayout,page_20up).addToBackStack(null).commit();
+                        return;
+                    case 6:
+                        ft.replace(R.id.frameLayout,page_23up).addToBackStack(null).commit();
+                        return;
+                    case 7:
+                        ft.replace(R.id.frameLayout,page_27up).addToBackStack(null).commit();
+                        return;
+                }
+            }
+        });
 
 
         return rootView;
     }
 
-    // 보통 ListView는 통신을 통해 가져온 데이터를 보여줍니다.
-    // arrResId, titles, contents를 서버에서 가져온 데이터라고 생각하시면 됩니다.
-    private void setData() {
-        TypedArray arrResId = getResources().obtainTypedArray(R.array.resId);
-        String[] contents = getResources().getStringArray(R.array.content);
 
-        for (int i = 0; i < arrResId.length(); i++) {
-            CustomDTO dto = new CustomDTO();
-            dto.setResId(arrResId.getResourceId(i, 0));
-            dto.setContent(contents[i]);
+    public void InitializeCodyData()
+    {
+        codyDataList = new ArrayList<ClothNode>();
 
-            adapter.addItem(dto);
-        }
+        codyDataList.add(new ClothNode(R.drawable.cody1," ~ 5ºC"));
+        codyDataList.add(new ClothNode(R.drawable.cody2,"6 ~ 10ºC"));
+        codyDataList.add(new ClothNode(R.drawable.cody3,"10 ~ 12ºC"));
+        codyDataList.add(new ClothNode(R.drawable.cody4,"12 ~ 17ºC"));
+        codyDataList.add(new ClothNode(R.drawable.cody5,"17 ~ 20ºC"));
+        codyDataList.add(new ClothNode(R.drawable.cody6,"20 ~ 23ºC"));
+        codyDataList.add(new ClothNode(R.drawable.cody7,"23 ~ 27ºC"));
+        codyDataList.add(new ClothNode(R.drawable.cody7,"27ºC ~"));
+    }
+
+    public void InitializeCodyLibraryPages(){
+        page_5down = new fragment_cody_lib_5down();
+        page_6up = new fragment_cody_lib_6up();
+        page_10up = new fragment_cody_lib10up();
+        page_12up = new fragment_cody_lib_12up();
+        page_17up = new fragment_cody_lib_17up();
+        page_20up = new fragment_cody_lib_20up();
+        page_23up = new fragment_cody_lib_23up();
+        page_27up = new fragment_cody_lib_27up();
     }
 }
