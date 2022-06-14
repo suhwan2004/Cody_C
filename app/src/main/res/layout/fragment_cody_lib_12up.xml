@@ -14,7 +14,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:background="@color/colorWhite"
-            android:id="@+id/codyLibrary">
+            android:id="@+id/codyLibrary_lib12">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -45,159 +45,264 @@
             </LinearLayout>
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.05"
-            android:background="#74BFFF"
-            android:weightSum="1">
-
-            <Button
-                android:id="@+id/btn1_12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.85"
-                android:backgroundTint="#ffffff"
-                android:onClick="mOnClick"
-                android:text="전체"
-                android:textColor="#2699FB"
-                android:translationX="15dp" />
-
-            <Button
-                android:id="@+id/btn2_12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.85"
-                android:backgroundTint="#ffffff"
-                android:onClick="mOnClick"
-                android:text="캐주얼"
-                android:textColor="#2699FB"
-                android:translationX="30dp" />
-
-            <Button
-                android:id="@+id/btn3_12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.85"
-                android:backgroundTint="#ffffff"
-                android:onClick="mOnClick"
-                android:text="섹시"
-                android:textColor="#2699FB"
-                android:translationX="45dp" />
-
-            <Button
-                android:id="@+id/btn4_12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.85"
-                android:backgroundTint="#ffffff"
-                android:onClick="mOnClick"
-                android:text="큐티"
-                android:textColor="#2699FB"
-                android:translationX="60dp" />
-
-            <Button
-                android:id="@+id/btn5_12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.85"
-                android:width="10dp"
-                android:backgroundTint="#ffffff"
-                android:onClick="mOnClick"
-                android:text="댄디"
-                android:textColor="#2699FB"
-                android:translationX="75dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.8"
-            android:orientation="vertical"
-            android:weightSum="1">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="210dp"
-                android:orientation="horizontal">
+                android:layout_height="0dp"
+                android:layout_weight="0.05"
+                android:background="#74BFFF"
+                android:weightSum="1">
 
-                <ImageView
-                    android:id="@+id/cody1_12"
-                    android:layout_width="137dp"
-                    android:layout_height="210dp"
-                    android:background="#E3F2FF"
-                    android:src="@drawable/cody2" />
+                <Button
+                    android:id="@+id/btn1_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.85"
+                    android:backgroundTint="#ffffff"
+                    
+                    android:text="전체"
+                    android:textColor="#2699FB"
+                    android:translationX="15dp" />
 
-                <ImageView
-                    android:id="@+id/cody2_12"
-                    android:layout_width="137dp"
-                    android:layout_height="210dp"
-                    android:background="#ffffff"
-                    android:src="@drawable/cody14" />
+                <Button
+                    android:id="@+id/btn2_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.85"
+                    android:backgroundTint="#ffffff"
+                    
+                    android:text="캐주얼"
+                    android:textColor="#2699FB"
+                    android:translationX="30dp" />
 
-                <ImageView
-                    android:id="@+id/cody3_12"
-                    android:layout_width="137dp"
-                    android:layout_height="210dp"
-                    android:background="#E3F2FF"
-                    />
+                <Button
+                    android:id="@+id/btn3_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.85"
+                    android:backgroundTint="#ffffff"
+                    
+                    android:text="섹시"
+                    android:textColor="#2699FB"
+                    android:translationX="45dp" />
+
+                <Button
+                    android:id="@+id/btn4_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.85"
+                    android:backgroundTint="#ffffff"
+                    
+                    android:text="큐티"
+                    android:textColor="#2699FB"
+                    android:translationX="60dp" />
+
+                <Button
+                    android:id="@+id/btn5_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.85"
+                    android:width="10dp"
+                    android:backgroundTint="#ffffff"
+                    
+                    android:text="댄디"
+                    android:textColor="#2699FB"
+                    android:translationX="75dp" />
+
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="210dp"
-                android:orientation="horizontal">
+                android:layout_height="0dp"
+                android:layout_weight="0.8"
+                android:orientation="vertical"
+                android:weightSum="1">
 
-                <ImageView
-                    android:id="@+id/cody4_12"
-                    android:layout_width="137dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="210dp"
-                    android:background="#ffffff"
-                    />
+                    android:weightSum="3"
+                    android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/cody5_12"
-                    android:layout_width="137dp"
-                    android:layout_height="210dp"
-                    android:background="#E3F2FF"
-                    />
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#E3F2FF">
+                        <ImageView
+                            android:id="@+id/book_lib12_cody1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/cody2"
+                            />
+                        <ImageView
+                            android:id="@+id/bookmark_lib12_cody1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            />
+                    </FrameLayout>
 
-                <ImageView
-                    android:id="@+id/cody6_12"
-                    android:layout_width="137dp"
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#ffffff">
+                        <ImageView
+                            android:id="@+id/book_lib12_cody2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/cody14"
+                            />
+                        <ImageView
+                            android:id="@+id/bookmark_lib12_cody2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#E3F2FF">
+                        <ImageView
+                            android:id="@+id/book_lib12_cody3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+                        <ImageView
+                            android:id="@+id/bookmark_lib12_cody3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            />
+                    </FrameLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="210dp"
-                    android:background="#ffffff"
-                    />
+                    android:weightSum="3"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF">
+                        <ImageView
+                            android:id="@+id/book_lib12_cody4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+                        <ImageView
+                            android:id="@+id/bookmark_lib12_cody4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#E3F2FF">
+                        <ImageView
+                            android:id="@+id/book_lib12_cody5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+                        <ImageView
+                            android:id="@+id/bookmark_lib12_cody5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF">
+                        <ImageView
+                            android:id="@+id/book_lib12_cody6"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+                        <ImageView
+                            android:id="@+id/bookmark_lib12_cody6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            />
+                    </FrameLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="210dp"
+                    android:weightSum="3"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#E3F2FF">
+                        <ImageView
+                            android:id="@+id/book_lib12_cody7"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+                        <ImageView
+                            android:id="@+id/bookmark_lib12_cody7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#ffffff">
+                        <ImageView
+                            android:id="@+id/book_lib12_cody8"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+                        <ImageView
+                            android:id="@+id/bookmark_lib12_cody8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#E3F2FF">
+                        <ImageView
+                            android:id="@+id/book_lib12_cody9"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+                        <ImageView
+                            android:id="@+id/bookmark_lib12_cody9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            />
+                    </FrameLayout>
+                </LinearLayout>
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="210dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/cody7_12"
-                    android:layout_width="137dp"
-                    android:layout_height="210dp"
-                    android:background="#E3F2FF"
-                    />
-
-                <ImageView
-                    android:id="@+id/cody8_12"
-                    android:layout_width="137dp"
-                    android:layout_height="210dp"
-                    android:background="#ffffff"
-                    />
-
-                <ImageView
-                    android:id="@+id/cody9_12"
-                    android:layout_width="137dp"
-                    android:layout_height="210dp"
-                    android:background="#E3F2FF"
-                    />
-            </LinearLayout>
-        </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

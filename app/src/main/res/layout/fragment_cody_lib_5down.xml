@@ -14,7 +14,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:background="@color/colorWhite"
-            android:id="@+id/codyLibrary">
+            android:id="@+id/codyLibrary_lib5">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -59,7 +59,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.85"
                     android:backgroundTint="#ffffff"
-                    android:onClick="mOnClick"
+                    
                     android:text="전체"
                     android:textColor="#2699FB"
                     android:translationX="15dp" />
@@ -70,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.85"
                     android:backgroundTint="#ffffff"
-                    android:onClick="mOnClick"
+                    
                     android:text="캐주얼"
                     android:textColor="#2699FB"
                     android:translationX="30dp" />
@@ -81,7 +81,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.85"
                     android:backgroundTint="#ffffff"
-                    android:onClick="mOnClick"
+                    
                     android:text="섹시"
                     android:textColor="#2699FB"
                     android:translationX="45dp" />
@@ -92,7 +92,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.85"
                     android:backgroundTint="#ffffff"
-                    android:onClick="mOnClick"
+                    
                     android:text="큐티"
                     android:textColor="#2699FB"
                     android:translationX="60dp" />
@@ -104,7 +104,7 @@
                     android:layout_weight="0.85"
                     android:width="10dp"
                     android:backgroundTint="#ffffff"
-                    android:onClick="mOnClick"
+                    
                     android:text="댄디"
                     android:textColor="#2699FB"
                     android:translationX="75dp" />
@@ -121,82 +121,185 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="210dp"
+                    android:weightSum="3"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:id="@+id/cody1_5"
-                        android:layout_width="137dp"
-                        android:layout_height="210dp"
-                        android:background="#E3F2FF"
-                        android:src="@drawable/cody22" />
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#E3F2FF">
+                        <ImageView
+                            android:id="@+id/book_lib5_cody1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/cody22"
+                            />
+                        <ImageView
+                            android:id="@+id/bookmark_lib5_cody1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            />
+                    </FrameLayout>
 
-                    <ImageView
-                        android:id="@+id/cody2_5"
-                        android:layout_width="137dp"
-                        android:layout_height="210dp"
-                        android:background="#ffffff"
-                        />
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#ffffff">
+                        <ImageView
+                            android:id="@+id/book_lib5_cody2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+                        <ImageView
+                            android:id="@+id/bookmark_lib5_cody2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            />
+                    </FrameLayout>
 
-                    <ImageView
-                        android:id="@+id/cody3_5"
-                        android:layout_width="137dp"
-                        android:layout_height="210dp"
-                        android:background="#E3F2FF"
-                        />
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#E3F2FF">
+                        <ImageView
+                            android:id="@+id/book_lib5_cody3"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+                        <ImageView
+                            android:id="@+id/bookmark_lib5_cody3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            />
+                    </FrameLayout>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="210dp"
+                    android:weightSum="3"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:id="@+id/cody4_5"
-                        android:layout_width="137dp"
-                        android:layout_height="210dp"
-                        android:background="#ffffff"
-                        />
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF">
+                        <ImageView
+                            android:id="@+id/book_lib5_cody4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+                        <ImageView
+                            android:id="@+id/bookmark_lib5_cody4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            />
+                    </FrameLayout>
 
-                    <ImageView
-                        android:id="@+id/cody5_5"
-                        android:layout_width="137dp"
-                        android:layout_height="210dp"
-                        android:background="#E3F2FF"
-                        />
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#E3F2FF">
+                        <ImageView
+                            android:id="@+id/book_lib5_cody5"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+                        <ImageView
+                            android:id="@+id/bookmark_lib5_cody5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            />
+                    </FrameLayout>
 
-                    <ImageView
-                        android:id="@+id/cody6_5"
-                        android:layout_width="137dp"
-                        android:layout_height="210dp"
-                        android:background="#ffffff"
-                        />
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF">
+                        <ImageView
+                            android:id="@+id/book_lib5_cody6"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+                        <ImageView
+                            android:id="@+id/bookmark_lib5_cody6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            />
+                    </FrameLayout>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="210dp"
+                    android:weightSum="3"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:id="@+id/cody7_5"
-                        android:layout_width="137dp"
-                        android:layout_height="210dp"
-                        android:background="#E3F2FF"
-                        />
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#E3F2FF">
+                        <ImageView
+                            android:id="@+id/book_lib5_cody7"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+                        <ImageView
+                            android:id="@+id/bookmark_lib5_cody7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            />
+                    </FrameLayout>
 
-                    <ImageView
-                        android:id="@+id/cody8_5"
-                        android:layout_width="137dp"
-                        android:layout_height="210dp"
-                        android:background="#ffffff"
-                        />
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#ffffff">
+                        <ImageView
+                            android:id="@+id/book_lib5_cody8"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+                        <ImageView
+                            android:id="@+id/bookmark_lib5_cody8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            />
+                    </FrameLayout>
 
-                    <ImageView
-                        android:id="@+id/cody9_5"
-                        android:layout_width="137dp"
-                        android:layout_height="210dp"
-                        android:background="#E3F2FF"
-                        />
+                    <FrameLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#E3F2FF">
+                        <ImageView
+                            android:id="@+id/book_lib5_cody9"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+                        <ImageView
+                            android:id="@+id/bookmark_lib5_cody9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            />
+                    </FrameLayout>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

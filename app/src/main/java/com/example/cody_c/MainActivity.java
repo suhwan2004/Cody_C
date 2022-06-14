@@ -130,8 +130,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onPause(){
-        PreferenceManager.setString(this, "flugin", "1");
         super.onPause();
+        PreferenceManager.setString(this, "flugin", "1");
+    }
+
+    protected void onResume() {
+        super.onResume();
+        PreferenceManager.onResume_pref(this);
     }
 
 }

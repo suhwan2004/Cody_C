@@ -43,6 +43,7 @@ public class fragment_main_codyimg extends Fragment{
     private int curRecommendedImgDrawble;
     private Fragment codyLibraryFragment;
     private Set<String> bookMarkSet;
+    private int curTemp;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -101,7 +102,14 @@ public class fragment_main_codyimg extends Fragment{
         currentCodyImg.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                ft.replace(R.id.frameLayout,codyLibraryFragment).addToBackStack(null).commit();
+                if(curTemp > 27) ft.replace(R.id.frameLayout, new fragment_cody_lib_27up()).addToBackStack(null).commit();
+                else if(curTemp > 23) ft.replace(R.id.frameLayout,new fragment_cody_lib_23up()).addToBackStack(null).commit();
+                else if(curTemp > 19) ft.replace(R.id.frameLayout,new fragment_cody_lib_20up()).addToBackStack(null).commit();
+                else if(curTemp > 16) ft.replace(R.id.frameLayout,new fragment_cody_lib_17up()).addToBackStack(null).commit();
+                else if(curTemp > 11) ft.replace(R.id.frameLayout,new fragment_cody_lib_12up()).addToBackStack(null).commit();
+                else if(curTemp > 9) ft.replace(R.id.frameLayout,new fragment_cody_lib10up()).addToBackStack(null).commit();
+                else if(curTemp > 5) ft.replace(R.id.frameLayout,new fragment_cody_lib_6up()).addToBackStack(null).commit();
+                else ft.replace(R.id.frameLayout,new fragment_cody_lib_5down()).addToBackStack(null).commit();
             }
         });
 
@@ -137,7 +145,7 @@ public class fragment_main_codyimg extends Fragment{
             27~ : cody10, 13, 17
          */
 
-        int curTemp = PreferenceManager.getInt(getContext(), "temp");
+        curTemp = PreferenceManager.getInt(getContext(), "temp");
 
         ArrayList<Integer> recommendedCodyArr;
         if(curTemp > 27) recommendedCodyArr = new ArrayList<Integer>(Arrays.asList(R.drawable.cody10,R.drawable.cody13,R.drawable.cody17));

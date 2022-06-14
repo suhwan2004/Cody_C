@@ -114,4 +114,11 @@ public class PreferenceManager {
         edit.clear();
         edit.commit();
     }
+
+    public static void onResume_pref(Context context){
+        SharedPreferences prefs = getPreferences(context);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.commit();
+
+    }
 }

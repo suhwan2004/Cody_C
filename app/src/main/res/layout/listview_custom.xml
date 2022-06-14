@@ -8,9 +8,10 @@
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="@color/colorWhite"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -25,7 +26,8 @@
         <LinearLayout
             android:layout_width="140pt"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@color/colorWhite">
 
             <TextView
                 android:id="@+id/grade"
@@ -33,6 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="7pt"
+                android:textColor="@color/Blue_Crayola"
                 android:text="TextView"
                 android:textSize="15pt" />
         </LinearLayout>

@@ -165,7 +165,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:background="@drawable/down_border">
+                    android:background="@color/colorWhite">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -181,7 +181,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="0.4">
+                android:layout_weight="0.4"
+                android:background="@color/Maya_Blue">
                     <LinearLayout
                         android:layout_margin="20dp"
                         android:layout_width="match_parent"
@@ -199,7 +200,7 @@
                                 android:text="매치 컬러"
                                 android:layout_marginLeft="10dp"
                                 android:layout_gravity="bottom"
-                                android:textColor="@color/colorWhite">
+                                android:textColor="@color/Blue_Crayola">
                             </TextView>
                         </LinearLayout>
                         <LinearLayout

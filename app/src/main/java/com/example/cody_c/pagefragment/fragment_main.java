@@ -65,7 +65,7 @@ import java.util.Locale;
  * create an instance of this fragment.
  */
 public class fragment_main extends Fragment {
-    private Fragment mainCodyImg, mainCodySet;
+    private Fragment mainCodyImg, mainCodyImg1;
     final int NUM_PAGES = 2;
 
     private GpsTracker gpsTracker;
@@ -180,7 +180,7 @@ public class fragment_main extends Fragment {
             PreferenceManager.setLong(rootView.getContext(), "lastRequestTime", curTime);
         }
         mainCodyImg = new fragment_main_codyimg();
-        mainCodySet = new fragment_main_codyset();
+        mainCodyImg1 = new fragment_main_codyimg1();
         detailWeatherFragment = new fragment_main_weather();
         detailWeatherFragment.setArguments(bundle);
 
@@ -207,7 +207,7 @@ public class fragment_main extends Fragment {
         @Override
         public Fragment createFragment(int position) {
             if(position == 0) return mainCodyImg;
-            else if(position == 1) return mainCodySet;
+            else if(position == 1) return mainCodyImg1;
             else return mainCodyImg;
         }
 

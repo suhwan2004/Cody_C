@@ -129,14 +129,14 @@ public class fragment_clothstyle extends Fragment {
     {
         codyDataList = new ArrayList<ClothNode>();
 
-        codyDataList.add(new ClothNode(R.drawable.cody1," ~ 5ºC"));
-        codyDataList.add(new ClothNode(R.drawable.cody2,"6 ~ 10ºC"));
-        codyDataList.add(new ClothNode(R.drawable.cody3,"10 ~ 12ºC"));
-        codyDataList.add(new ClothNode(R.drawable.cody4,"12 ~ 17ºC"));
-        codyDataList.add(new ClothNode(R.drawable.cody5,"17 ~ 20ºC"));
-        codyDataList.add(new ClothNode(R.drawable.cody6,"20 ~ 23ºC"));
-        codyDataList.add(new ClothNode(R.drawable.cody7,"23 ~ 27ºC"));
-        codyDataList.add(new ClothNode(R.drawable.cody7,"27ºC ~"));
+        codyDataList.add(new ClothNode(R.drawable.cody22," ~ 5ºC"));
+        codyDataList.add(new ClothNode(R.drawable.cody19,"6 ~ 10ºC"));
+        codyDataList.add(new ClothNode(R.drawable.cody1,"10 ~ 12ºC"));
+        codyDataList.add(new ClothNode(R.drawable.cody2,"12 ~ 17ºC"));
+        codyDataList.add(new ClothNode(R.drawable.cody3,"17 ~ 20ºC"));
+        codyDataList.add(new ClothNode(R.drawable.cody7,"20 ~ 23ºC"));
+        codyDataList.add(new ClothNode(R.drawable.cody11,"23 ~ 27ºC"));
+        codyDataList.add(new ClothNode(R.drawable.cody10,"27ºC ~"));
     }
 
     public void InitializeCodyLibraryPages(){

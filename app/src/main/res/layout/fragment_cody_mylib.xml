@@ -57,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.85"
                     android:backgroundTint="#ffffff"
-                    android:onClick="mOnClick"
+                    
                     android:text="전체"
                     android:textColor="#2699FB"
                     android:translationX="15dp" />
@@ -68,7 +68,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.85"
                     android:backgroundTint="#ffffff"
-                    android:onClick="mOnClick"
+                    
                     android:text="캐주얼"
                     android:textColor="#2699FB"
                     android:translationX="30dp" />
@@ -79,7 +79,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.85"
                     android:backgroundTint="#ffffff"
-                    android:onClick="mOnClick"
+                    
                     android:text="섹시"
                     android:textColor="#2699FB"
                     android:translationX="45dp" />
@@ -90,7 +90,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.85"
                     android:backgroundTint="#ffffff"
-                    android:onClick="mOnClick"
+                    
                     android:text="큐티"
                     android:textColor="#2699FB"
                     android:translationX="60dp" />
@@ -102,7 +102,7 @@
                     android:layout_weight="0.85"
                     android:width="10dp"
                     android:backgroundTint="#ffffff"
-                    android:onClick="mOnClick"
+                    
                     android:text="댄디"
                     android:textColor="#2699FB"
                     android:translationX="75dp" />
